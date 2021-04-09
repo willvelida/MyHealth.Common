@@ -6,18 +6,16 @@ namespace MyHealth.Common
 {
     public class AzureBlobHelpers : IAzureBlobHelpers
     {
-        public BlobContainerClient ConnectToBlobClient(string connectionString, string containerName)
+        private readonly BlobContainerClient _blobContainerClient;
+
+        public AzureBlobHelpers(string connectionString, string containerName)
         {
-            BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
-
-            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-
-            return containerClient;
+            _blobContainerClient = new BlobContainerClient(connectionString, containerName);
         }
 
-        public async Task<Stream> DownloadBlobAsStreamAsync(BlobContainerClient containerClient, string blobName)
+        public async Task<Stream> DownloadBlobAsStreamAsync(string blobName)
         {
-            BlobClient blobClient = containerClient.GetBlobClient(blobName);
+            BlobClient blobClient = _blobContainerClient.GetBlobClient(blobName);
 
             var stream = new MemoryStream();
 
@@ -26,9 +24,9 @@ namespace MyHealth.Common
             return stream;
         }
 
-        public async Task UploadBlobAsync(BlobContainerClient containerClient, string blobName, string fileName)
+        public async Task UploadBlobAsync(string blobName, string fileName)
         {
-            BlobClient blobClient = containerClient.GetBlobClient(blobName);
+            BlobClient blobClient = _blobContainerClient.GetBlobClient(blobName);
 
             await blobClient.UploadAsync(fileName);
         }
