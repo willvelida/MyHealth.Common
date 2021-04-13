@@ -1,5 +1,4 @@
-﻿using Azure.Messaging.ServiceBus;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace MyHealth.Common
 {

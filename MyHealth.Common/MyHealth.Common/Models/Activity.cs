@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyHealth.Common.Models
+﻿namespace MyHealth.Common.Models
 {
     public class Activity
     {
