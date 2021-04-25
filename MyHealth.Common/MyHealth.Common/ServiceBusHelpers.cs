@@ -1,5 +1,6 @@
 ﻿using Azure.Messaging.ServiceBus;
 using Newtonsoft.Json;
+using System;
 using System.Threading.Tasks;
 
 namespace MyHealth.Common
@@ -10,7 +11,7 @@ namespace MyHealth.Common
 
         public ServiceBusHelpers(string connectionString)
         {
-            _serviceBusClient = new ServiceBusClient(connectionString);
+            _serviceBusClient = new ServiceBusClient(connectionString) ?? throw new ArgumentNullException(nameof(connectionString));
         }
 
         public async Task SendMessageToTopic<T>(string topicName, T messageContent)
