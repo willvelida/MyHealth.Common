@@ -40,13 +40,13 @@ namespace MyHealth.Common
             }
         }
 
-        public async Task<bool> IsDuplicateAsync<T>(string partitionKey, string rowKey)
+        public async Task<bool> IsDuplicateAsync<TableEntity>(string partitionKey, string rowKey)
         {
             bool isDuplicate;
 
             try
             {
-                TableOperation retrieveOperation = TableOperation.Retrieve<TableEntity>(partitionKey, rowKey);
+                TableOperation retrieveOperation = TableOperation.Retrieve(partitionKey, rowKey);
                 TableResult result = await _cloudTable.ExecuteAsync(retrieveOperation);
 
                 if (result.HttpStatusCode == (int)System.Net.HttpStatusCode.NotFound)
