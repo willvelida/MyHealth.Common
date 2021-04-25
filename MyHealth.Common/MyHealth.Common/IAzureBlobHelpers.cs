@@ -19,5 +19,12 @@ namespace MyHealth.Common
         /// <param name="blobName"></param>
         /// <returns></returns>
         Task<Stream> DownloadBlobAsStreamAsync(string blobName);
+
+        /// <summary>
+        /// Deletes the specified blob. NOTE: This method will also delete the snapshot of the blob.
+        /// </summary>
+        /// <param name="blobName"></param>
+        /// <returns></returns>
+        Task DeleteBlobAsync(string blobName);
     }
 }
