@@ -34,7 +34,7 @@ namespace MyHealth.Common
 
         public async Task DeleteBlobAsync(string blobName)
         {
-            await _blobContainerClient.DeleteBlobAsync(blobName, DeleteSnapshotsOption.IncludeSnapshots); 
+            await _blobContainerClient.DeleteBlobAsync(blobName, DeleteSnapshotsOption.IncludeSnapshots);
         }
     }
 }
