@@ -20,5 +20,12 @@ namespace MyHealth.Common
             var messageAsJSONString = JsonConvert.SerializeObject(messageContent);
             await sender.SendMessageAsync(new ServiceBusMessage(messageAsJSONString));
         }
+
+        public async Task SendMessageToQueue<T>(string queueName, T messageContent)
+        {
+            ServiceBusSender sender = _serviceBusClient.CreateSender(queueName);
+            var messageAsJsonString = JsonConvert.SerializeObject(messageContent);
+            await sender.SendMessageAsync(new ServiceBusMessage(messageAsJsonString));
+        }
     }
 }
