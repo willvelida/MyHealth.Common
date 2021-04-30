@@ -4,7 +4,7 @@ namespace MyHealth.Common.Models
 {
     public class Sleep
     {
-        public string ActivityDate { get; set; }
+        public string SleepDate { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public int MinutesAsleep { get; set; }
