@@ -15,6 +15,13 @@ namespace MyHealth.Common
             _secretClient = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential());
         }
 
+        public KeyVaultHelper(string keyVaultName, string tenantId, string clientId, string clientSecret)
+        {
+            var keyVaultUri = "https://" + keyVaultName + ".vault.azure.net";
+            ClientSecretCredential clientSecretCredential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+            _secretClient = new SecretClient(new Uri(keyVaultUri), clientSecretCredential);
+        }
+
         public async Task RetrieveSecretFromKeyVaultAsync(string secret)
         {
             await _secretClient.GetSecretAsync(secret);
