@@ -22,9 +22,10 @@ namespace MyHealth.Common
             _secretClient = new SecretClient(new Uri(keyVaultUri), clientSecretCredential);
         }
 
-        public async Task RetrieveSecretFromKeyVaultAsync(string secret)
+        public async Task<KeyVaultSecret> RetrieveSecretFromKeyVaultAsync(string secret)
         {
-            await _secretClient.GetSecretAsync(secret);
+            KeyVaultSecret keyVaultSecret = await _secretClient.GetSecretAsync(secret);
+            return keyVaultSecret;
         }
 
         public async Task SaveSecretToKeyVaultAsync(string secretName, string secretValue)
