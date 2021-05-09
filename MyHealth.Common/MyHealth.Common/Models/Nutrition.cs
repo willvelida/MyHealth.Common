@@ -8,7 +8,7 @@
         public double Fat { get; set; }
         public double Fiber { get; set; }
         public double Protein { get; set; }
-        public int Sodium { get; set; }
+        public double Sodium { get; set; }
         public int WaterInMl { get; set; }
     }
 }
