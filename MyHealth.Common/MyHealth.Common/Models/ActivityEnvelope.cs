@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace MyHealth.Common.Models
 {
@@ -7,6 +8,7 @@ namespace MyHealth.Common.Models
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
         public Activity Activity { get; set; }
+        public DateTime Date { get; set; }
         public string DocumentType { get; set; }
     }
 }
