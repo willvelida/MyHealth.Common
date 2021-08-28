@@ -5,7 +5,7 @@
     <Description>Common Helper Library for MyHealth Applications</Description>
     <Authors>Will Velida</Authors>
     <Product>MyHealth</Product>
-    <Version>1.7.0</Version>
+    <Version>1.8.0</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
