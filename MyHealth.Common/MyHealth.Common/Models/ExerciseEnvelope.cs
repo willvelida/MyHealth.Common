@@ -10,7 +10,8 @@ namespace MyHealth.Common.Models
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
         public List<WeightExercise> WeightExercises { get; set; }
-        public CardioExercise CardioExercise { get; set; }
+        public List<CardioExercise> CardioExercise { get; set; }
+        public string Date { get; set; }
         public string DocumentType { get; set; }
     }
 }

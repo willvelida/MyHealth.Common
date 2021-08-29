@@ -7,7 +7,7 @@ namespace MyHealth.Common.Models
     public class WeightExercise
     {
         public string Name { get; set; }
-        public double WeightInKg { get; set; }
+        public double Weight { get; set; }
         public int Reps { get; set; }
         public string Notes { get; set; }
     }
