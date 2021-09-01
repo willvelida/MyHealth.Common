@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyHealth.Common.Models
+﻿namespace MyHealth.Common.Models
 {
     public class WeightExercise
     {
+        public string WeightExerciseId { get; set; }
         public string Name { get; set; }
         public double Weight { get; set; }
         public int Reps { get; set; }
